@@ -41,22 +41,22 @@ public class MenuScreen implements SolUiScreen {
   public MenuScreen(MenuLayout menuLayout, GameOptions gameOptions) {
     myControls = new ArrayList<SolUiControl>();
 
-    myDoNotSellEquippedControl = new SolUiControl(menuLayout.buttonRectangleForRow(-1), true);
+    myDoNotSellEquippedControl = new SolUiControl(menuLayout.buttonRectangleForRow(6), true);
     myDoNotSellEquippedControl.setDisplayName("Can sell used items");
     myControls.add(myDoNotSellEquippedControl);
-    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true);
+    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(5), true);
     mySoundVolCtrl.setDisplayName("Sound Volume");
     myControls.add(mySoundVolCtrl);
-    myMusVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(0), true);
+    myMusVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true);
     myMusVolCtrl.setDisplayName("Music Volume");
     myControls.add(myMusVolCtrl);
-    myRespawnCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true);
+    myRespawnCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true);
     myRespawnCtrl.setDisplayName("Respawn");
     myControls.add(myRespawnCtrl);
-    myExitCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true);
+    myExitCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true);
     myExitCtrl.setDisplayName("Exit");
     myControls.add(myExitCtrl);
-    myCloseCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyClose());
+    myCloseCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyClose());
     myCloseCtrl.setDisplayName("Resume");
     myControls.add(myCloseCtrl);
   }

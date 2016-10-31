@@ -40,29 +40,29 @@ public class OptionsScreen implements SolUiScreen {
 
     myControls = new ArrayList<SolUiControl>();
 
-    myResoCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true);
-    myResoCtrl.setDisplayName("Resolution");
-    myControls.add(myResoCtrl);
+    myMusVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(6), true);
+    myMusVolCtrl.setDisplayName("Music Volume");
+    myControls.add(myMusVolCtrl);
 
-    myControlTypeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, Input.Keys.C);
-    myControlTypeCtrl.setDisplayName("Control Type");
-    myControls.add(myControlTypeCtrl);
-
-    inputMapCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, Input.Keys.M);
-    inputMapCtrl.setDisplayName("Controls");
-    myControls.add(inputMapCtrl);
-
-    myBackCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyEscape());
-    myBackCtrl.setDisplayName("Back");
-    myControls.add(myBackCtrl);
-
-    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(0), true);
+    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(5), true);
     mySoundVolCtrl.setDisplayName("Sound Volume");
     myControls.add(mySoundVolCtrl);
 
-    myMusVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(-1), true);
-    myMusVolCtrl.setDisplayName("Music Volume");
-    myControls.add(myMusVolCtrl);
+    myResoCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true);
+    myResoCtrl.setDisplayName("Resolution");
+    myControls.add(myResoCtrl);
+
+    myControlTypeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, Input.Keys.C);
+    myControlTypeCtrl.setDisplayName("Control Type");
+    myControls.add(myControlTypeCtrl);
+
+    inputMapCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, Input.Keys.M);
+    inputMapCtrl.setDisplayName("Controls");
+    myControls.add(inputMapCtrl);
+
+    myBackCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyEscape());
+    myBackCtrl.setDisplayName("Back");
+    myControls.add(myBackCtrl);
   }
 
   @Override

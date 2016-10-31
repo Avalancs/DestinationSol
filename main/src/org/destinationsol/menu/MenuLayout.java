@@ -26,7 +26,6 @@ public class MenuLayout {
   public final float row0;
   private final float rowHeight;
   private final float padding;
-  private static final int numberOfRowsTotal = 5;
 
   public MenuLayout(float r) {
     buttonWidth = .30f * r;
@@ -34,11 +33,17 @@ public class MenuLayout {
     padding = .1f * buttonHeight;
     rowHeight = buttonHeight + padding;
     colCenter = .5f * r - buttonWidth / 2;
-    row0 = 1 - padding - numberOfRowsTotal * rowHeight;
+    // calculate where the first row starts in screen height%
+    row0 = 1.f - padding;
   }
 
+  /**
+   * Returns a rectangle for the given row for drawing UI elements.<br/>
+   * Row 0 starts at the bottom of the screen, and higher indices go up<br/>
+   * Row number can be from 1 to 10
+   */
   public Rectangle buttonRectangleForRow(int row) {
-    float y = row0 + rowHeight * row;
+    float y = row0 - rowHeight * row;
     return new Rectangle(colCenter, y, buttonWidth, buttonHeight);
   }
 

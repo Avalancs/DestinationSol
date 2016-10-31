@@ -47,23 +47,23 @@ public class TalkScreen implements SolUiScreen {
   public TalkScreen(MenuLayout menuLayout, GameOptions gameOptions) {
     myControls = new ArrayList<SolUiControl>();
 
-    mySellCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(0), true, gameOptions.getKeySellMenu());
+    mySellCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(5), true, gameOptions.getKeySellMenu());
     mySellCtrl.setDisplayName("Sell");
     myControls.add(mySellCtrl);
 
-    buyCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyBuyMenu());
+    buyCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyBuyMenu());
     buyCtrl.setDisplayName("Buy");
     myControls.add(buyCtrl);
 
-    myShipsCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, gameOptions.getKeyChangeShipMenu());
+    myShipsCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, gameOptions.getKeyChangeShipMenu());
     myShipsCtrl.setDisplayName("Change Ship");
     myControls.add(myShipsCtrl);
 
-    myHireCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, gameOptions.getKeyHireShipMenu());
+    myHireCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, gameOptions.getKeyHireShipMenu());
     myHireCtrl.setDisplayName("Hire");
     myControls.add(myHireCtrl);
 
-    closeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyClose());
+    closeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyClose());
     closeCtrl.setDisplayName("Close");
     myControls.add(closeCtrl);
 
