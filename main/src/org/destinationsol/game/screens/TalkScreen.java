@@ -40,34 +40,34 @@ public class TalkScreen implements SolUiScreen {
   public final SolUiControl buyCtrl;
   private final SolUiControl myShipsCtrl;
   private final SolUiControl myHireCtrl;
-  private final Rectangle myBg;
+  private final Rectangle background;
   public final SolUiControl closeCtrl;
   private SolShip myTarget;
 
   public TalkScreen(MenuLayout menuLayout, GameOptions gameOptions) {
     myControls = new ArrayList<SolUiControl>();
 
-    mySellCtrl = new SolUiControl(menuLayout.buttonRect(-1, 0), true, gameOptions.getKeySellMenu());
+    mySellCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(0), true, gameOptions.getKeySellMenu());
     mySellCtrl.setDisplayName("Sell");
     myControls.add(mySellCtrl);
 
-    buyCtrl = new SolUiControl(menuLayout.buttonRect(-1, 1), true, gameOptions.getKeyBuyMenu());
+    buyCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyBuyMenu());
     buyCtrl.setDisplayName("Buy");
     myControls.add(buyCtrl);
 
-    myShipsCtrl = new SolUiControl(menuLayout.buttonRect(-1, 2), true, gameOptions.getKeyChangeShipMenu());
+    myShipsCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, gameOptions.getKeyChangeShipMenu());
     myShipsCtrl.setDisplayName("Change Ship");
     myControls.add(myShipsCtrl);
 
-    myHireCtrl = new SolUiControl(menuLayout.buttonRect(-1, 3), true, gameOptions.getKeyHireShipMenu());
+    myHireCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, gameOptions.getKeyHireShipMenu());
     myHireCtrl.setDisplayName("Hire");
     myControls.add(myHireCtrl);
 
-    closeCtrl = new SolUiControl(menuLayout.buttonRect(-1, 4), true, gameOptions.getKeyClose());
+    closeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyClose());
     closeCtrl.setDisplayName("Close");
     myControls.add(closeCtrl);
 
-    myBg = menuLayout.bg(-1, 0, 5);
+    background = menuLayout.backgroundRectangle(0, 5);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class TalkScreen implements SolUiScreen {
 
   @Override
   public void drawBg(UiDrawer uiDrawer, SolApplication cmp) {
-    uiDrawer.draw(myBg, SolColor.UI_BG);
+    uiDrawer.draw(background, SolColor.UI_BG);
   }
 
   @Override
@@ -133,7 +133,7 @@ public class TalkScreen implements SolUiScreen {
 
   @Override
   public boolean isCursorOnBg(SolInputManager.Ptr ptr) {
-    return myBg.contains(ptr.x, ptr.y);
+    return background.contains(ptr.x, ptr.y);
   }
 
   @Override

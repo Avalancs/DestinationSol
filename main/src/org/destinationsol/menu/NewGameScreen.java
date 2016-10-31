@@ -36,15 +36,15 @@ public class NewGameScreen implements SolUiScreen {
   public NewGameScreen(MenuLayout menuLayout, GameOptions gameOptions) {
     myControls = new ArrayList<SolUiControl>();
 
-    myPrevCtrl = new SolUiControl(menuLayout.buttonRect(-1, 1), true, gameOptions.getKeyShoot());
+    myPrevCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, gameOptions.getKeyShoot());
     myPrevCtrl.setDisplayName("Previous Ship");
     myControls.add(myPrevCtrl);
 
-    myNewCtrl = new SolUiControl(menuLayout.buttonRect(-1, 2), true);
+    myNewCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true);
     myNewCtrl.setDisplayName("New Ship");
     myControls.add(myNewCtrl);
 
-    myBackCtrl = new SolUiControl(menuLayout.buttonRect(-1, 4), true, gameOptions.getKeyEscape());
+    myBackCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyEscape());
     myBackCtrl.setDisplayName("Cancel");
     myControls.add(myBackCtrl);
 

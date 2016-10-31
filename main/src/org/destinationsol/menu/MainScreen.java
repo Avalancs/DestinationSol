@@ -53,19 +53,19 @@ public class MainScreen implements SolUiScreen {
     myControls = new ArrayList<SolUiControl>();
     this.gameOptions = gameOptions;
 
-    myTutCtrl = new SolUiControl(menuLayout.buttonRect(-1, 1), true, Input.Keys.T);
+    myTutCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true, Input.Keys.T);
     myTutCtrl.setDisplayName("Tutorial");
     myControls.add(myTutCtrl);
 
-    myNewGameCtrl = new SolUiControl(menuLayout.buttonRect(-1, 2), true, gameOptions.getKeyShoot());
+    myNewGameCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, gameOptions.getKeyShoot());
     myNewGameCtrl.setDisplayName("New Game");
     myControls.add(myNewGameCtrl);
 
-    myOptionsCtrl = new SolUiControl(mobile ? null : menuLayout.buttonRect(-1, 3), true, Input.Keys.O);
+    myOptionsCtrl = new SolUiControl(mobile ? null : menuLayout.buttonRectangleForRow(3), true, Input.Keys.O);
     myOptionsCtrl.setDisplayName("Options");
     myControls.add(myOptionsCtrl);
 
-    myExitCtrl = new SolUiControl(menuLayout.buttonRect(-1, 4), true, gameOptions.getKeyEscape());
+    myExitCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyEscape());
     myExitCtrl.setDisplayName("Exit");
     myControls.add(myExitCtrl);
 

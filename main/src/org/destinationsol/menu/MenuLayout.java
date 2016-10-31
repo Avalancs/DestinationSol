@@ -20,32 +20,31 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class MenuLayout {
   public static final float BG_BORDER = .03f;
-  public final float btnW;
-  public final float btnH;
+  public final float buttonWidth;
+  public final float buttonHeight;
   public final float colCenter;
   public final float row0;
-  private final float rowH;
-  private final float myPad;
+  private final float rowHeight;
+  private final float padding;
   private static final int numberOfRowsTotal = 5;
 
   public MenuLayout(float r) {
-    btnW = .30f * r;
-    btnH = .1f;
-    myPad = .1f * btnH;
-    rowH = btnH + myPad;
-    colCenter = .5f * r - btnW / 2;
-    row0 = 1 - myPad - numberOfRowsTotal * rowH;
+    buttonWidth = .30f * r;
+    buttonHeight = .1f;
+    padding = .1f * buttonHeight;
+    rowHeight = buttonHeight + padding;
+    colCenter = .5f * r - buttonWidth / 2;
+    row0 = 1 - padding - numberOfRowsTotal * rowHeight;
   }
 
-  public Rectangle buttonRect(int col, int row) {
-    float x = col == -1 ? colCenter : .5f; //unfinished
-    float y = row0 + rowH * row;
-    return new Rectangle(x, y, btnW, btnH);
+  public Rectangle buttonRectangleForRow(int row) {
+    float y = row0 + rowHeight * row;
+    return new Rectangle(colCenter, y, buttonWidth, buttonHeight);
   }
 
-  public Rectangle bg(int colCount, int startRow, int rowCount) {
-    float x = colCount == -1 ? colCenter : .5f; //unfinished
-    float y = row0 + rowH * startRow;
-    return new Rectangle(x - BG_BORDER, y - BG_BORDER, btnW + 2 * BG_BORDER, rowH * rowCount - myPad + 2 * BG_BORDER);
+  public Rectangle backgroundRectangle(int startRow, int rowCount) {
+    float x = colCenter;
+    float y = row0 + rowHeight * startRow;
+    return new Rectangle(x - BG_BORDER, y - BG_BORDER, buttonWidth + 2 * BG_BORDER, rowHeight * rowCount - padding + 2 * BG_BORDER);
   }
 }

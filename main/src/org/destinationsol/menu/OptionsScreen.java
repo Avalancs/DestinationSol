@@ -40,27 +40,27 @@ public class OptionsScreen implements SolUiScreen {
 
     myControls = new ArrayList<SolUiControl>();
 
-    myResoCtrl = new SolUiControl(menuLayout.buttonRect(-1, 1), true);
+    myResoCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(1), true);
     myResoCtrl.setDisplayName("Resolution");
     myControls.add(myResoCtrl);
 
-    myControlTypeCtrl = new SolUiControl(menuLayout.buttonRect(-1, 2), true, Input.Keys.C);
+    myControlTypeCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true, Input.Keys.C);
     myControlTypeCtrl.setDisplayName("Control Type");
     myControls.add(myControlTypeCtrl);
 
-    inputMapCtrl = new SolUiControl(menuLayout.buttonRect(-1, 3), true, Input.Keys.M);
+    inputMapCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true, Input.Keys.M);
     inputMapCtrl.setDisplayName("Controls");
     myControls.add(inputMapCtrl);
 
-    myBackCtrl = new SolUiControl(menuLayout.buttonRect(-1, 4), true, gameOptions.getKeyEscape());
+    myBackCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyEscape());
     myBackCtrl.setDisplayName("Back");
     myControls.add(myBackCtrl);
 
-    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRect(-1, 0), true);
+    mySoundVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(0), true);
     mySoundVolCtrl.setDisplayName("Sound Volume");
     myControls.add(mySoundVolCtrl);
 
-    myMusVolCtrl = new SolUiControl(menuLayout.buttonRect(-1, -1), true);
+    myMusVolCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(-1), true);
     myMusVolCtrl.setDisplayName("Music Volume");
     myControls.add(myMusVolCtrl);
   }

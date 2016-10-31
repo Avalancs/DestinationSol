@@ -35,15 +35,15 @@ public class ResolutionScreen implements SolUiScreen {
   public ResolutionScreen(MenuLayout menuLayout, GameOptions gameOptions) {
     myControls = new ArrayList<SolUiControl>();
 
-    myResoCtrl = new SolUiControl(menuLayout.buttonRect(-1, 2), true);
+    myResoCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(2), true);
     myResoCtrl.setDisplayName("Resolution");
     myControls.add(myResoCtrl);
 
-    myFsCtrl = new SolUiControl(menuLayout.buttonRect(-1, 3), true);
+    myFsCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(3), true);
     myFsCtrl.setDisplayName("Fullscreen");
     myControls.add(myFsCtrl);
 
-    myCloseCtrl = new SolUiControl(menuLayout.buttonRect(-1, 4), true, gameOptions.getKeyEscape());
+    myCloseCtrl = new SolUiControl(menuLayout.buttonRectangleForRow(4), true, gameOptions.getKeyEscape());
     myCloseCtrl.setDisplayName("Back");
     myControls.add(myCloseCtrl);
   }
