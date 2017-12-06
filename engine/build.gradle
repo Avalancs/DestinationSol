@@ -9,17 +9,7 @@ dependencies {
     compile "org.terasology:gestalt-util:5.1.3"
     compile "org.terasology:gestalt-module:5.1.3"
     compile "org.terasology:gestalt-asset-core:5.1.3"
-    compile "org.terasology:gestalt-entity-system:5.1.3" }
-
-sourceSets {
-    // Main is almost everything - the true engine
-    main {
-        java {
-            output.classesDir 'build/classes'
-        }
-        // This makes the resources (assets, 3d wizardry includes, etc) also go to build/classes
-        output.resourcesDir 'build/classes'
-    }
+    compile "org.terasology:gestalt-entity-system:5.1.3"
 }
 
 jar {
