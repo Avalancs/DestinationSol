@@ -59,11 +59,9 @@ public class IniReader {
             second = !second;
         }
 
-        String path;
+        String path = "";
         if (DebugOptions.DEV_ROOT_PATH != null) {
             path = DebugOptions.DEV_ROOT_PATH;
-        } else {
-            path = "src/main/resources/";
         }
         path += fileName;
 
@@ -88,11 +86,9 @@ public class IniReader {
     }
 
     private List<String> fileToLines(String fileName) {
-        String path;
+        String path = "";
         if (DebugOptions.DEV_ROOT_PATH != null) {
             path = DebugOptions.DEV_ROOT_PATH;
-        } else {
-            path = "src/main/resources/";
         }
         path += fileName;
 

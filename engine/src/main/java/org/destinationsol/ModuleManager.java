@@ -72,14 +72,13 @@ public class ModuleManager {
         ModulePathScanner scanner = new ModulePathScanner(new ModuleLoader(metadataReader));
 
         //TODO: TEMPORARY HACK!
-
         if (DebugOptions.DEV_ROOT_PATH != null) {
-            scanner.scan(registry, Paths.get(".").resolve("modules"));
+            scanner.scan(registry, Paths.get(DebugOptions.DEV_ROOT_PATH).resolve("/modules"));
         } else {
-            scanner.scan(registry, Paths.get(".").resolve("..").resolve("modules"));
+            scanner.scan(registry, Paths.get("modules"));
         }
 
-        // Do we need this line? Copied from Teraosolgy.
+        // Do we need this line? Copied from Terasology.
         /*
         DependencyInfo engineDep = new DependencyInfo();
         engineDep.setId(engineModule.getId());

@@ -50,11 +50,9 @@ public class SaveManager {
     }
 
     public static boolean hasPrevShip() {
-        String path;
+        String path = "";
         if (DebugOptions.DEV_ROOT_PATH != null) {
             path = DebugOptions.DEV_ROOT_PATH;
-        } else {
-            path = "src/main/resources/";
         }
         path += FILE_NAME;
 
