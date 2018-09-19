@@ -21,6 +21,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.JsonValue;
 import com.google.common.base.Preconditions;
 import org.destinationsol.common.NotNull;
@@ -37,6 +38,7 @@ import org.destinationsol.game.ship.SolShip;
 import org.destinationsol.assets.audio.OggSoundSet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DSParticleEmitter {
@@ -150,15 +152,17 @@ public class DSParticleEmitter {
             ParticleEmitter.ScaledNumericValue velocity = particleEmitter.getVelocity();
             velocity.setHigh(velocity.getHighMin() * size, velocity.getHighMax() * size);
             areaSize = 0;
-        } else if (JUMP_SIZE_THRESHOLD < particleEmitter.getScale().getHighMax()) { // large scale
-            ParticleEmitter.ScaledNumericValue scale = particleEmitter.getScale();
+        } else if (JUMP_SIZE_THRESHOLD < particleEmitter.getXScale().getHighMax()) { // large scale
+            ParticleEmitter.ScaledNumericValue scale = particleEmitter.getXScale();
             scale.setHigh(scale.getHighMin() * size, scale.getHighMax() * size);
             areaSize = 0;
         } else {
             areaSize = size;
         }
 
-        particleEmitter.setSprite(new Sprite(config.tex));
+        Array<Sprite> sprite = new Array<>();
+        sprite.add(new Sprite(config.tex));
+        particleEmitter.setSprites(sprite);
         float[] tint = particleEmitter.getTint().getColors();
         tint[0] = config.tint.r;
         tint[1] = config.tint.g;

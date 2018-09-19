@@ -16,6 +16,7 @@
 package org.destinationsol.desktop;
 
 import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Version;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import org.destinationsol.GameOptions;
@@ -80,6 +81,8 @@ public final class SolDesktop {
         }
 
         handleCrashReporting(argv);
+
+        logger.info("Using libgdx " + Version.MAJOR + "." + Version.MINOR + "." + Version.REVISION);
 
         // Everything is set up correctly, launch the application
         new LwjglApplication(new SolApplication(), applicationConfig);

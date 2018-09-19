@@ -16,6 +16,7 @@
 package org.destinationsol.menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import org.destinationsol.GameOptions;
@@ -66,7 +67,11 @@ public class ResolutionScreen implements SolUiScreen {
         GameOptions options = solApplication.getOptions();
 
         if (closeControl.isJustOff()) {
-            Gdx.graphics.setDisplayMode(options.x, options.y, options.fullscreen);
+            if(options.fullscreen) {
+                Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+            } else {
+                Gdx.graphics.setWindowedMode(options.x, options.y);
+            }
             inputManager.setScreen(solApplication, solApplication.getMenuScreens().options);
             return;
         }
