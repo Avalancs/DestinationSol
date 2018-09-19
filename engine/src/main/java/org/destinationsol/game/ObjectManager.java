@@ -90,6 +90,7 @@ public class ObjectManager implements UpdateAwareSystem{
             recalcRad = true;
         }
 
+        final Hero hero = game.getHero();
         for (SolObject o : myObjs) {
             o.update(game);
             SolMath.checkVectorsTaken(o);
@@ -98,7 +99,6 @@ public class ObjectManager implements UpdateAwareSystem{
                 drawable.update(game, o);
             }
 
-            final Hero hero = game.getHero();
             if (o.shouldBeRemoved(game)) {
                 removeObjDelayed(o);
                 if (hero.isAlive() && hero.isNonTranscendent() && o == hero.getShip()) {

@@ -67,7 +67,6 @@ public class SolCam implements UpdateAwareSystem {
         }
 
         Hero hero = game.getHero();
-        float life = hero.getLife();
         if (hero.isDead() || DIRECT_CAM_CONTROL) {
             applyInput(game);
         } else {
@@ -86,6 +85,7 @@ public class SolCam implements UpdateAwareSystem {
             }
         }
 
+        float life = hero.getLife();
         if (life < myPrevHeroLife) {
             float shakeDiff = .1f * MAX_SHAKE * (myPrevHeroLife - life);
             myShake = SolMath.approach(myShake, MAX_SHAKE, shakeDiff);

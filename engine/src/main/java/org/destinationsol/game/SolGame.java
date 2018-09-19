@@ -338,13 +338,8 @@ public class SolGame {
     public void respawn() {
         respawnState.setPlayerRespawned(true);
         if (hero.isAlive()) {
-            if (hero.isNonTranscendent()) {
-                beforeHeroDeath();
-                objectManager.removeObjDelayed(hero.getShip());
-            } else {
-                setRespawnState(hero.getMoney(), hero.getItemContainer(), hero.getTranscendentHero().getShip().getHullConfig());
-                objectManager.removeObjDelayed(hero.getTranscendentHero());
-            }
+            setRespawnState();
+            objectManager.removeObjDelayed(hero.getShip());
         }
         createGame(null, true);
     }
@@ -458,32 +453,17 @@ public class SolGame {
         return tutorialManager;
     }
 
-    public void beforeHeroDeath() {
-        if (hero.isDead() || hero.isTranscendent()) {
-            return;
-        }
-
-        float money = hero.getMoney();
-        ItemContainer itemContainer = hero.getItemContainer();
-
-        setRespawnState(money, itemContainer, hero.getHull().config);
-
-        hero.setMoney(money - respawnState.getRespawnMoney());
-        for (SolItem item : respawnState.getRespawnItems()) {
-            itemContainer.remove(item);
-        }
-    }
-
-    private void setRespawnState(float money, ItemContainer ic, HullConfig hullConfig) {
-        respawnState.setRespawnMoney(.75f * money);
-        respawnState.setRespawnHull(hullConfig);
+    public void setRespawnState() {
+        respawnState.setRespawnMoney(.75f * hero.getMoney());
+        hero.setMoney(respawnState.getRespawnMoney()); // to update the display while the camera waits for respawn if the player died
+        respawnState.setRespawnHull(hero.isNonTranscendent() ? hero.getHull().getHullConfig() : hero.getTranscendentHero().getShip().getHullConfig());
         respawnState.getRespawnItems().clear();
         respawnState.setPlayerRespawned(true);
-        for (List<SolItem> group : ic) {
+        for (List<SolItem> group : hero.getItemContainer()) {
             for (SolItem item : group) {
                 boolean equipped = hero.isTranscendent() || hero.maybeUnequip(this, item, false);
                 if (equipped || SolRandom.test(.75f)) {
-                    respawnState.getRespawnItems().add(0, item);
+                    respawnState.getRespawnItems().add(item);
                 }
             }
         }
